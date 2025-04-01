@@ -17,8 +17,7 @@ def bubbleSort(array):
                 if array[j] > array[j + 1]:
                     array[j], array[j + 1] = array[j + 1], array[j]
                     sortTime = time.perf_counter() - startTime
-                    with open(FILE, "w") as outfile:
-                        json.dump(array, outfile)
-                        json.dump(sortTime, outfile)
+                    data.update(array : sortTime)
+                    print(data)
 
 bubbleSort(array)
