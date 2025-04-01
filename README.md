@@ -1,2 +1,2 @@
 # APCSP-CreateTask
-Repository for AP computer science create task.
+Repository for AP Computer Science Principles create task.
