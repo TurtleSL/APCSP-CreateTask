@@ -1,0 +1,15 @@
+{
+    "name": "sorting-visualizer",
+    "version": "0.0.0",
+    "description": "Compares different programs and their speed sorting",
+    "license": "MIT",
+    "author": "Will Garrison",
+    "type": "commonjs",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "devDependencies": {
+        "electron": "^35.1.1"
+    }
+}
