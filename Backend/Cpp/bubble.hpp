@@ -1,4 +1,5 @@
-#include "empty.cpp"
+#pragma once
+#include "SortData.hpp"
 
 void bubble(SortData& data)
 {
