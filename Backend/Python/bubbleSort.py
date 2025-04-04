@@ -23,4 +23,4 @@ def bubbleSort(array):
 
     with open(globalVariables.outputFile, "w", newline='') as file:
         datawriter = csv.writer(file)
-        datawriter.writerows(output)
+        datawriter.writerows(output)        # Write rows to ouput file

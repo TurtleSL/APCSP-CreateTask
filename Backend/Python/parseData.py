@@ -12,12 +12,12 @@ tempArray = []
 with open(globalVariables.inputFile, "r") as readfile:      # Open file and write to each new line
     datareader = csv.DictReader(readfile)
     for row in datareader:
-        length = int(row["Length"])
+        length = int(row["Length"])                     # Check for row with "Length" tag
         for i in range(length):
-            temp = int(row[f"A{i}"])
+            temp = int(row[f"A{i}"])                    # Check for row with "A#" tag
             tempArray.append(temp)
     
-        if row["Type"] == "bubble":
+        if row["Type"] == "bubble":                     # Check for sort type
             bubbleSort.bubbleSort(tempArray)
             print(tempArray)
         else:
