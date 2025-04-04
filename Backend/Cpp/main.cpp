@@ -8,8 +8,9 @@
 // Simple method that prints all items from an array
 void printArray(const SortData& data);
 
-int main()
+int main(int argc, char** argv)
 {
+
     SortData data;
     data.size = 10;
 
