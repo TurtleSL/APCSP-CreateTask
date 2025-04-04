@@ -3,7 +3,7 @@ import time
 
 import globalVariables
 
-label = f"a"    # Bubble sort identifier is 'a'
+label = f"bubble"    # Bubble sort identifier is 'a'
 
 outputData = []
 
