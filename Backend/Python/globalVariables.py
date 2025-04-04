@@ -3,8 +3,6 @@ outputFile = '../../pythonData.csv'
 
 sortTime = 0.0
 
-array = [1, 2, 3, 4, 5]
-
 length = 5
 
 def createHeaders(array, outputArray):
@@ -16,8 +14,10 @@ def createHeaders(array, outputArray):
     tempArray.append("Type")
     outputArray.append(tempArray)
 
-def addDataToOutput(sortArray, outputArray, time, type):
+def addDataToOutput(sortArray, time, type, outputArray):
+    temp = []
     for i in range(len(sortArray)):
-        outputArray.append(i)
-    outputArray.append(time)
-    outputArray.append(type)
+        temp.append(sortArray[i])
+    temp.append(time)
+    temp.append(type)
+    outputArray.append(temp)
