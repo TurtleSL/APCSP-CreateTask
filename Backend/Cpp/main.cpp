@@ -2,23 +2,21 @@
 #include <random>
 #include <fstream>
 
-#include "SortData.hpp"
+// All the sort algorithm functions
 #include "bubble.hpp"
 
 // Simple method that prints all items from an array
-void printArray(const SortData& data);
+void printArray(const std::vector<int> data);
 
 int main(int argc, char** argv)
 {
-
-    SortData data;
-    data.size = 10;
+    std::vector<int> data;
 
     // Initialize random values to the array
-    for(int i=0;i<data.size;i++)
+    for(int i=0;i<data.size();i++)
     {
         int rv = rand() % 10 + 1;
-        data.data[i] = rv;
+        data[i] = rv;
     }
 
     printArray(data);
@@ -30,11 +28,11 @@ int main(int argc, char** argv)
     return 0;
 }
 
-void printArray(const SortData& data)
+void printArray(const std::vector<int> data)
 {
-    for(int i=0;i<data.size;i++)
+    for(int i=0;i<data.size();i++)
     {
-        std::cout << data.data[i] << ", ";
+        std::cout << data[i] << ", ";
     }
     std::cout << std::endl;
 }
