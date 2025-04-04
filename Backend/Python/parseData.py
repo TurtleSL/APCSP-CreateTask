@@ -3,8 +3,8 @@ import sys
 
 import globalVariables
 
-globalVariables.inputFile = sys.argv[1]
-globalVariables.outputFile = sys.argv[2]
+globalVariables.inputFile = f"../../{sys.argv[1]}"
+globalVariables.outputFile = f"../../{sys.argv[2]}"
 
 print(globalVariables.outputFile)
 

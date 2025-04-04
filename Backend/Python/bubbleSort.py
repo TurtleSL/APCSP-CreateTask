@@ -5,19 +5,23 @@ import globalVariables
 
 label = f"a"    # Bubble sort identifier is 'a'
 
+outputData = []
+
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 with open(globalVariables.outputFile, mode='w', newline='') as file: # Clear file before sorting
     pass
 
 def bubbleSort(array):
-    startTime = time.perf_counter() # Initialize start time
+    startTime = time.perf_counter()
     for i in range(len(array)):
             for j in range(0, len(array) - i - 1):
                 if array[j] > array[j + 1]:
                     array[j], array[j + 1] = array[j + 1], array[j]
-                    globalVariables.sortTime = time.perf_counter() - startTime          # Update sort time based on current time and start time
-                    Time = f"{globalVariables.sortTime:.14f}"                           # Store the sort time as a .14 decimal float
-                    with open(globalVariables.outputFile, mode='a', newline='') as file:      # Open file and write to each new line
-                        datawriter = csv.writer(file)                   # Initialize the writer for the file
-                        datawriter.writerow(array + [Time] + [label])   # Write data to the file
+                    globalVariables.sortTime = time.perf_counter() - startTime
+                    Time = f"{globalVariables.sortTime:.14f}"
+                    globalVariables.addDataToOutput(array, outputData, Time, label)
 
-bubbleSort(globalVariables.array)   # Call bubbleSort on the array
+globalVariables.createHeaders(array, outputData)
+print(outputData)
+bubbleSort(globalVariables.array)   # Call bubbleSort on the arraya
