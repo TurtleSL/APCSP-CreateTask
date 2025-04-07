@@ -19,9 +19,8 @@ with open(globalVariables.inputFile, "r") as readfile:      # Open file and writ
             tempArray.append(temp)
     
         if row["Type"] == "bubble":                     # Check for sort type
-            bubbleSort.bubbleSort(tempArray)
+            bubbleSort.bubbleSort(tempArray, length)
         elif row["Type"] == "merge":
             mergeSort.mergeSort(tempArray, 0, length - 1)
-            print(tempArray)
         else:
             print("Sort not available")

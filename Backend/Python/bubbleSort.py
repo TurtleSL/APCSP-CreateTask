@@ -10,11 +10,11 @@ output = []
 with open(globalVariables.outputFile, mode='w', newline='') as file: # Clear file before sorting
     pass
 
-def bubbleSort(array):
+def bubbleSort(array, length):
     startTime = time.perf_counter()
     globalVariables.createHeaders(array, output)
-    for i in range(len(array)):
-        for j in range(0, len(array) - i - 1):
+    for i in range(length):
+        for j in range(0, length - i - 1):
             if array[j] > array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
                 globalVariables.sortTime = time.perf_counter() - startTime
