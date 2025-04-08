@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-ArrayConfigs& parseCSV(std::string fileName)
+ArrayConfigs parseCSV(std::string fileName)
 {
     std::ifstream file(fileName);
 
@@ -18,15 +18,17 @@ ArrayConfigs& parseCSV(std::string fileName)
     // Read from file
     while(getline(file, line))
     {
-        if(line.substr(0, 5) != "Length")
+        if(line[0] != 'L')
         {
             std::stringstream buffer;
 
             int i=0;
 
-            while(line[i++] != ',')
+            while(line[i] != ',')
             {
                 buffer << line[i];
+                i++;
+                std::cout << buffer.str() << std::endl;
             }
         
             // Convert the buffer to a string and then into an integer
@@ -44,7 +46,11 @@ ArrayConfigs& parseCSV(std::string fileName)
                     buffer << line[i];
                 }
 
-                buffer >> data[counter];
+                // temporary variable to store the buffer data in then push back to
+                // the data vector
+                int temp;
+                buffer >> temp;
+                data.emplace_back(temp);
 
                 buffer.clear();
                 

@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 {
     ArrayConfigs data = parseCSV("../../inputData.csv");
 
-    printArray(data.array);
+    std::cout << data.type;
     
     return 0;
 }
