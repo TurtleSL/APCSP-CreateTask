@@ -1,7 +1,8 @@
 #include <iostream>
-#include <random>
-#include <fstream>
 #include <vector>
+
+// Parse header for the input
+#include "Parse.cpp"
 
 // All the sort algorithm functions
 #include "bubble.hpp"
@@ -11,14 +12,9 @@ void printArray(const std::vector<int> data);
 
 int main(int argc, char** argv)
 {
-    // Overlying data list
-    std::vector<int> data;
+    ArrayConfigs data = parseCSV("../../inputData.csv");
 
-    printArray(data);
-
-    bubble(data);
-
-    printArray(data);
+    printArray(data.array);
     
     return 0;
 }
