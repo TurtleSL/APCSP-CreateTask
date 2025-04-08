@@ -2,12 +2,25 @@ import csv
 import sys
 
 import globalVariables
+import bubbleSort
+import mergeSort
 
 globalVariables.inputFile = f"../../{sys.argv[1]}"
 globalVariables.outputFile = f"../../{sys.argv[2]}"
 
-with open(globalVariables.outputFile, "r") as readfile:      # Open file and write to each new line
-    datareader = csv.reader(readfile)
+tempArray = []
+
+with open(globalVariables.inputFile, "r") as readfile:      # Open file and write to each new line
+    datareader = csv.DictReader(readfile)
     for row in datareader:
-        for i in row:
-            print(i)
+        length = int(row["Length"])                     # Check for row with "Length" tag
+        for i in range(length):
+            temp = int(row[f"A{i}"])                    # Check for row with "A#" tag
+            tempArray.append(temp)
+    
+        if row["Type"] == "bubble":                     # Check for sort type
+            bubbleSort.bubbleSort(tempArray, length)
+        elif row["Type"] == "merge":
+            mergeSort.mergeSort(tempArray, 0, length - 1)
+        else:
+            print("Sort not available")
