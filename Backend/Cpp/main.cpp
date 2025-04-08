@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 #include <fstream>
+#include <vector>
 
 // All the sort algorithm functions
 #include "bubble.hpp"
@@ -10,14 +11,8 @@ void printArray(const std::vector<int> data);
 
 int main(int argc, char** argv)
 {
+    // Overlying data list
     std::vector<int> data;
-
-    // Initialize random values to the array
-    for(int i=0;i<data.size();i++)
-    {
-        int rv = rand() % 10 + 1;
-        data[i] = rv;
-    }
 
     printArray(data);
 
@@ -32,7 +27,7 @@ void printArray(const std::vector<int> data)
 {
     for(int i=0;i<data.size();i++)
     {
-        std::cout << data[i] << ", ";
+        std::cout << data.at(i) << ", ";
     }
     std::cout << std::endl;
 }

@@ -1,17 +1,20 @@
 #pragma once
 
+#include <array>
+
 void bubble(std::vector<int> data)
 {
-    for(int i=0;i<data.size()-1;i++)
-    {
-        for(int j=0;j<data.size()-i-1;j++)
+    if(data.size() > 0)
+        for(int i=0;i<data.size()-1;i++)
         {
-            if(data[j] > data[j+1])
+            for(int j=0;j<data.size()-i-1;j++)
             {
-                int temp = data[j];
-                data[j] = data[j+1];
-                data[j+1] = temp;
+                if(data.at(j) > data.at(j+1))
+                {
+                    int temp = data.at(j);
+                    data.at(j) = data.at(j+1);
+                    data.at(j+1) = temp;
+                }
             }
         }
-    }
 }
