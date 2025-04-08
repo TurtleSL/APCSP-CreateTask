@@ -1,4 +1,4 @@
 #include "ArrayConfigs.hpp"
 
 
-extern ArrayConfigs& parseCSV(std::string fileName);
+extern ArrayConfigs parseCSV(std::string fileName);
