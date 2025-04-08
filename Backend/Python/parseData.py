@@ -4,6 +4,7 @@ import sys
 import globalVariables
 import bubbleSort
 import mergeSort
+import insertionSort
 
 globalVariables.inputFile = f"../../{sys.argv[1]}"
 globalVariables.outputFile = f"../../{sys.argv[2]}"
@@ -23,7 +24,7 @@ with open(globalVariables.inputFile, "r") as readfile:      # Open file and writ
         elif col["Type"] == "merge":
             mergeSort.mergeSort(tempArray, 0, length - 1)
         elif col["Type"] == "insertion":
-            pass
+            insertionSort.insertionSort(tempArray, length)
         elif col["Type"] == "quick":
             pass
         elif col["Type"] == "selection":
