@@ -2,15 +2,20 @@ let fs = require("fs");
 const path = require("path");
 const csv = require("csv");
 
+var content = {}
+
+function createInputData(amount, type)
+{
+    content[`Length`] = amount;
+    for (i = 0; i < amount; i++)
+    {
+        content[`A${i}`] = i + 1;
+    }
+    content[`Type`] = type;
+}
+
 function createInputFile()
 {
-    var  content = {
-        Length: 1512,
-        A0:  1,
-        A1:  1,
-        A2:  1,
-        type: "bubbleSort"
-    }
     const csvString = Object.keys(content).join(",")+"\n"+Object.values(content).join(",");
 
     const csvFilePath = path.join(__dirname, "output.csv");
@@ -42,3 +47,6 @@ function processCSV(err, data)
 
 // Example: Create a text file
 createInputFile();
+
+// Example: Create input data
+createInputData(10, "bubble");
