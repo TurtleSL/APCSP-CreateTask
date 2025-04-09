@@ -1,6 +1,5 @@
 let fs = require("fs");
 const path = require("path");
-const csv = require("csv");
 
 var content = {}
 
@@ -14,11 +13,12 @@ function createInputData(amount, type)
     content[`Type`] = type;
 }
 
-function createInputFile()
-{
-    const csvString = Object.keys(content).join(",")+"\n"+Object.values(content).join(",");
+function createInputFile() {
+    // Explicitly define the order of keys
+    const orderedKeys = ["Length", ...Object.keys(content).filter(key => key.startsWith("A")), "Type"];
+    const csvString = orderedKeys.join(",") + "\n" + orderedKeys.map(key => content[key]).join(",");
 
-    const csvFilePath = path.join(__dirname, "output.csv");
+    const csvFilePath = path.join(__dirname + '../../', "inputData.csv");
 
     fs.writeFile(csvFilePath, csvString, (err) => {
         if (err) {
@@ -44,8 +44,8 @@ function processCSV(err, data)
     var csv = Buffer.toString()
 }
 
-// Example: Create a text file
-createInputFile();
-
 // Example: Create input data
 createInputData(10, "bubble");
+
+// Example: Create a text file
+createInputFile();
