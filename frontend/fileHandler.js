@@ -42,7 +42,6 @@ function processCSV(err, data)
     }
 
     var csv = Buffer.toString()
-    
 }
 
 // Example: Create a text file
