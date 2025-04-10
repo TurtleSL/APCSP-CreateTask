@@ -5,12 +5,22 @@ var content = {}
 
 function createInputData(amount, type)
 {
+    // create dictionary with length, A0 -> An, and type
     content[`Length`] = amount;
     for (i = 0; i < amount; i++)
     {
         content[`A${i}`] = i + 1;
     }
     content[`Type`] = type;
+
+    // randomize A0 -> An
+    for (i = 0; i < amount; i++)
+    {
+        let randomIndex = Math.floor(Math.random() * amount);
+        let temp = content[`A${i}`];
+        content[`A${i}`] = content[`A${randomIndex}`];
+        content[`A${randomIndex}`] = temp;
+    }
 }
 
 function createInputFile() {
@@ -46,6 +56,7 @@ function processCSV(err, data)
 
 // Example: Create input data
 createInputData(10, "bubble");
+console.log(content);
 
 // Example: Create a text file
 createInputFile();
