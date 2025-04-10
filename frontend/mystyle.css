@@ -1,3 +1,8 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
 #bar-frame-1 {
     position: relative;
     align-items: baseline;
@@ -15,13 +20,13 @@
 }
 
 form {
-    width: 200px;
+    width: 600px;
     height: 140px;
     border-width: 1px;
     border-color: #cccccc;
     border-style: solid;
     border-radius: 3px;
-    margin: 3px;
+    padding: 3px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -33,6 +38,10 @@ input {
     border-width: 1px;
     border-color:#cccccc;
     border-style: solid;
+}
+
+#create-bar-progress {
+    margin: 0px;
 }
 
 button {

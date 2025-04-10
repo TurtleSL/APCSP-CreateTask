@@ -8,10 +8,26 @@
     <script src="renderer.js"></script>
   </head>
   <body>
-    <div id="bar-frame-1">
-    </div>
-
+    <div id="bar-frame-1"></div>
     <form id="start-form">
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" id="option1" name="options" value="option1">Bubble Sort
+        </label>
+        <label class="radio-label">
+          <input type="radio" id="option2" name="options" value="option2">Insertion Sort
+        </label>
+        <label class="radio-label">
+          <input type="radio" id="option3" name="options" value="option3">Merge Sort
+        </label>
+        <label class="radio-label">
+          <input type="radio" id="option4" name="options" value="option4">Quick Sort
+        </label>
+        <label class="radio-label">
+          <input type="radio" id="option5" name="options" value="option5">Selection Sort
+        </label>
+      </div>
+      <hr>
       <label for="number-field"># to sort</label>
       <input type="number" id="number-field" name="number" required>
       
