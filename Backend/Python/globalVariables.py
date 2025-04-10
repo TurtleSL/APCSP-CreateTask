@@ -1,5 +1,5 @@
-inputFile = '../../inputData.csv'
-outputFile = '../../pythonData.csv'
+inputFile = 'NULL'
+outputFile = 'NULL'
 
 sortTime = 0.0
 
@@ -7,7 +7,7 @@ def createHeaders(array, outputArray):
     tempArray = []
     for i in range(len(array)):         # Append array tags to the temp list
         tempArray.append(f"A{i}")
-        
+
     tempArray.append("Time")            # Append time tag to temp list
     tempArray.append("Type")            # Append type tag to temp list
     outputArray.append(tempArray)       # Append full temp list tags to main array

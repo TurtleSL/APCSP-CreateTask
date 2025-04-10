@@ -7,9 +7,6 @@ label = f"insertion"
 
 output = []
 
-with open(globalVariables.outputFile, mode='w', newline='') as file:
-    pass
-
 def insertionSort(array, length):
     startTime = time.perf_counter()
     globalVariables.createHeaders(array, output)

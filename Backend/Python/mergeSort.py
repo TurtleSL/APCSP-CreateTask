@@ -7,9 +7,6 @@ label = f"merge"
 
 output = []
 
-with open(globalVariables.outputFile, mode='w', newline='') as file: # Clear file before sorting
-    pass
-
 # This code was taken from geeks for geeks at:
 # https://www.geeksforgeeks.org/merge-sort/?utm_source=geeksforgeeks&utm_medium=gfgcontent_shm&utm_campaign=shm
 # With some modifications made to fit this use case
