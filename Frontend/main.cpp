@@ -17,7 +17,7 @@ static std::vector<std::vector<std::string>> temp;
 int generateData(std::string Type)
 {
 	// open file to write to 
-	std::ofstream outputFile("../Data/inputData.csv");
+	std::ofstream outputFile("Data/inputData.csv");
 
 	if (!outputFile.is_open()) 
 	{
