@@ -28,7 +28,6 @@ ArrayConfigs parseCSV(std::string fileName)
             {
                 buffer << line[i];
                 i++;
-                std::cout << buffer.str() << std::endl;
             }
         
             // Convert the buffer to a string and then into an integer
