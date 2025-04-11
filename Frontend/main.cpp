@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-// g++ frontend/C++/main.cpp -o main -Ifrontend/include/SDL2 -Dmain=SDL_main -Lfrontend/lib -lmingw32 -lSDL2main -lSDL2
+// g++ frontend/main.cpp -o main -Ibuild/include/SDL2 -Dmain=SDL_main -Lbuild/lib -lmingw32 -lSDL2main -lSDL2
 // ./main
 
 // can be ran in vscode terminal
