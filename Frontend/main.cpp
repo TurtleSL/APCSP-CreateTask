@@ -11,21 +11,44 @@ static SDL_Renderer *renderer = NULL;
 
 int main(int argc, char* argv[])
 {
-  if (SDL_Init(SDL_INIT_EVERYTHING) > 0)
-  {
-    std::cout << "SDL_Init failed with error: " << SDL_GetError() << std::endl;
-    return EXIT_FAILURE;
-  }
+	if (SDL_Init(SDL_INIT_EVERYTHING) > 0)
+	{
+		std::cout << "SDL_Init failed with error: " << SDL_GetError() << std::endl;
+		return 1;
+	}
 
-    window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
-    if (!window) {
-        std::cout << "SDL_CreateWindow failed with error: " << SDL_GetError() << std::endl;
+	window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
+	if (!window) {
+		std::cout << "SDL_CreateWindow failed with error: " << SDL_GetError() << std::endl;
+		return 1;
+	}
+
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+    if (!renderer) {
+        std::cout << "SDL_CreateRenderer failed with error: " << SDL_GetError() << std::endl;
+		return 1;
     }
 
-  std::string greetings = "Hello SDL2!";
-  std::cout << greetings << std::endl;
+	std::string greetings = "Hello SDL2!";
+	std::cout << greetings << std::endl;
 
-  SDL_Quit();
+	SDL_bool running = SDL_TRUE;
+    while (running) {
+        SDL_Event e;
+        while (SDL_PollEvent(&e)) {
+            switch (e.type) {
+                case SDL_QUIT: {
+                    running = SDL_FALSE;
+                    break;
+                }
+			}
+		}
+	}
 
-  return EXIT_SUCCESS;
+	SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+
+    SDL_Quit();
+
+    return 0;
 }
