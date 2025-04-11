@@ -16,6 +16,8 @@ static std::vector<std::vector<std::string>> temp;
 
 int generateData(std::string Type)
 {
+	int length = 0;
+
 	// open file to write to 
 	std::ofstream outputFile("Data/inputData.csv");
 
@@ -25,10 +27,25 @@ int generateData(std::string Type)
         return 1; // Indicate an error
     }
 
-	for (int i = 0; i < temp.size(); i++)
-	{
-		std::cout << i << std::endl;
-	}
+	// Check for first index of array (length)
+	std::string secondRowFirstColumn = temp[1][0];
+	std::cout << "Second row, first column: " << secondRowFirstColumn << std::endl;
+
+	// write the temp vector to the file
+	for (const auto& row : temp) 
+	{ // Iterate through each row in temp
+        for (size_t i = 0; i < row.size(); ++i) 
+		{ // Iterate through each element in the row
+            outputFile << row[i];
+            if (i < row.size() - 1) 
+			{
+                outputFile << ","; // Add comma separator
+            }
+        }
+        outputFile << std::endl; // Add newline for the next row
+    }
+
+    outputFile.close();
 	return 0;
 }
 
@@ -73,6 +90,7 @@ int main(int argc, char* argv[])
 	std::string greetings = "Hello SDL2!";
 	std::cout << greetings << std::endl;
 
+	createHeaders(10);
 	generateData("bubble");
 
 	SDL_bool running = SDL_TRUE;
