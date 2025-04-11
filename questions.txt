@@ -1,8 +1,0 @@
-Are we having a file (files?) that store variables? Like could I create one for my python 
-that saves the file location so I dont have to create it each time?
-
-Should I start working on my other sorting algorithms now?
-
-How are we planning on getting data from the frontend, since we need some sort of input?
-
-And do we need to have some sort of way to identify which sort it is, so there isnt a discrepency between the 2?
