@@ -15,19 +15,29 @@ static SDL_Renderer *renderer = NULL;
 static std::vector<std::vector<std::string>> temp;
 
 int generateData(int length, std::string Type) {
-    std::vector<std::string> tempStr; // Vector of strings
+    std::vector<std::string> headerStr; // Vector of headers
+	std::vector<std::string> dataStr;	// Vector of data
 
-    tempStr.push_back("Length"); // Add "Length" as a string
+	std::stringstream lengthStr;
+	lengthStr << length;
+
+    headerStr.push_back("Length"); // Add "Length" as a string
+	dataStr.push_back(lengthStr.str());
 
     for (int i = 0; i < length; i++) {
         std::stringstream arrayIdx;
+		std::stringstream arrayInt;
         arrayIdx << "A" << i;
-        tempStr.push_back(arrayIdx.str()); // Add the string from stringstream
+		arrayInt << i + 1;
+        headerStr.push_back(arrayIdx.str()); // Add the string from stringstream
+		dataStr.push_back(arrayInt.str());	 // Add the int from stringstream
     }
 
-    tempStr.push_back("Type"); // Add "Type" as a string
+    headerStr.push_back("Type"); // Add "Type" as a string
+	dataStr.push_back(Type);
 
-    temp.push_back(tempStr);
+    temp.push_back(headerStr);
+	temp.push_back(dataStr);
 
 	// open file to write to 
 	std::ofstream outputFile("Data/inputData.csv");
@@ -62,7 +72,9 @@ int generateData(int length, std::string Type) {
 
 int main(int argc, char* argv[])
 {
-	if (SDL_Init(SDL_INIT_EVERYTHING) > 0)
+	generateData(10, "Merge");
+
+	if (SDL_Init(SDL_INIT_VIDEO) > 0)
 	{
 		std::cout << "SDL_Init failed with error: " << SDL_GetError() << std::endl;
 		return 1;
