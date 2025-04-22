@@ -14,9 +14,20 @@ static SDL_Renderer *renderer = NULL;
 
 static std::vector<std::vector<std::string>> temp;
 
-int generateData(std::string Type)
-{
-	int length = 0;
+int generateData(int length, std::string Type) {
+    std::vector<std::string> tempStr; // Vector of strings
+
+    tempStr.push_back("Length"); // Add "Length" as a string
+
+    for (int i = 0; i < length; i++) {
+        std::stringstream arrayIdx;
+        arrayIdx << "A" << i;
+        tempStr.push_back(arrayIdx.str()); // Add the string from stringstream
+    }
+
+    tempStr.push_back("Type"); // Add "Type" as a string
+
+    temp.push_back(tempStr);
 
 	// open file to write to 
 	std::ofstream outputFile("Data/inputData.csv");
@@ -28,8 +39,8 @@ int generateData(std::string Type)
     }
 
 	// Check for first index of array (length)
-	std::string secondRowFirstColumn = temp[1][0];
-	std::cout << "Second row, first column: " << secondRowFirstColumn << std::endl;
+	std::string secondRowFirstColumn = temp[0][1];
+	std::cout << "0, 1: " << secondRowFirstColumn << std::endl;
 
 	// write the temp vector to the file
 	for (const auto& row : temp) 
@@ -47,22 +58,6 @@ int generateData(std::string Type)
 
     outputFile.close();
 	return 0;
-}
-
-void createHeaders(int length) {
-    std::vector<std::string> tempVec; // Vector of strings
-
-    tempVec.push_back("Length"); // Add "Length" as a string
-
-    for (int i = 0; i < length; i++) {
-        std::stringstream arrayIdx;
-        arrayIdx << "A" << i;
-        tempVec.push_back(arrayIdx.str()); // Add the string from stringstream
-    }
-
-    tempVec.push_back("Type"); // Add "Type" as a string
-
-    temp.push_back(tempVec);
 }
 
 int main(int argc, char* argv[])
@@ -89,9 +84,6 @@ int main(int argc, char* argv[])
 
 	std::string greetings = "Hello SDL2!";
 	std::cout << greetings << std::endl;
-
-	createHeaders(10);
-	generateData("bubble");
 
 	SDL_bool running = SDL_TRUE;
     while (running) 
