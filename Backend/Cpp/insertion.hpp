@@ -6,15 +6,13 @@ void insertion(std::vector<int> data)
 {
     for(int i=1;i<data.size();i++)
     {   
-        for(int j=0;j<i;j++)
+        int unsorted = data[i];
+        int j=i-1;
+        while(j >= 0 && data[j] > unsorted)
         {
-            if((i-1-j) >= 0) //Out of bounds prevention
-                if(data[i] > data[i-1-j])
-                {
-                    int temp = data[i];
-                    data[i] = data[i-1-j];
-                    data[i-1-j] = temp;
-                }
+            data[j+1] = data[j];
+            j--;
         }
+        data[j+1] = unsorted;
     }
 }

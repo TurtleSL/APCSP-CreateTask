@@ -16,7 +16,7 @@ void printArray(const std::vector<int> data);
 
 int main(int argc, char** argv)
 {
-    ArrayConfigs data = parseCSV("../../inputData.csv");
+    ArrayConfigs data = parseCSV("../../Data/inputData.csv");
 
     if(data.type == "b")
         bubble(data.array);
