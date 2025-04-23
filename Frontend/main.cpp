@@ -1,4 +1,7 @@
+#define SDL_MAIN_UNHANDLED
+
 #include <SDL2/SDL.h>
+
 #include "dataHandler.hpp"
 #include "generateDataGraph.hpp"
 
@@ -16,13 +19,6 @@ int main(int argc, char* argv[])
 	if (generateData(10, "Merge"))
 	{
 		std::cout << "GenerateData failed with error" << std::endl;
-		return 1;
-	}
-
-	std::vector<int> array(10);
-
-	if (displayDataToScreen(array, 10, renderer, window)) {
-		std::cout << "DisplayDataToScreen failed with error" << std::endl;
 		return 1;
 	}
 
@@ -45,6 +41,13 @@ int main(int argc, char* argv[])
         std::cout << "SDL_CreateRenderer failed with error: " << SDL_GetError() << std::endl;
 		return 1;
     }
+
+	std::vector<int> array(10);
+
+	if (displayDataToScreen(array, 10, renderer, window)) {
+		std::cout << "DisplayDataToScreen failed with error" << std::endl;
+		return 1;
+	}
 
 	std::string greetings = "Hello SDL2!";
 	std::cout << greetings << std::endl;
