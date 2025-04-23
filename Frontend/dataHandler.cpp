@@ -1,8 +1,5 @@
 #include "dataHandler.hpp"
 
-#include <random>
-#include <algorithm>
-
 static std::vector<std::vector<std::string>> temp;
 
 int generateData(int length, std::string Type) {

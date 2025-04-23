@@ -1,9 +1,10 @@
 #include <SDL2/SDL.h>
-#include "dataHandler.h"
+#include "dataHandler.hpp"
+#include "generateDataGraph.hpp"
 
 #include <iostream>
 
-// g++ frontend/main.cpp frontend/dataHandler.cpp -o main -Ibuild/include/SDL2 -IFrontend/ -Dmain=SDL_main -Lbuild/lib -lmingw32 -lSDL2main -lSDL2
+// g++ frontend/main.cpp frontend/dataHandler.cpp frontend/generateDataGraph.cpp -o main -Ibuild/include/SDL2 -IFrontend/ -Dmain=SDL_main -Lbuild/lib -lmingw32 -lSDL2main -lSDL2
 // ./main
 // can be ran in vscode terminal
 
@@ -15,6 +16,13 @@ int main(int argc, char* argv[])
 	if (generateData(10, "Merge"))
 	{
 		std::cout << "GenerateData failed with error" << std::endl;
+		return 1;
+	}
+
+	std::vector<int> array(10);
+
+	if (displayDataToScreen(array, 10, renderer, window)) {
+		std::cout << "DisplayDataToScreen failed with error" << std::endl;
 		return 1;
 	}
 

@@ -14,7 +14,7 @@
 // Simple method that prints all items from an array
 void printArray(const std::vector<int> data);
 
-int main(int argc, char** argv)
+int runBack(int argc, char** argv)
 {
     ArrayConfigs data = parseCSV("../../Data/inputData.csv");
 
