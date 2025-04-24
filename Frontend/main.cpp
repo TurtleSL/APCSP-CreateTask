@@ -1,6 +1,4 @@
-#define SDL_MAIN_UNHANDLED
-
-#include <SDL2/SDL.h>
+#include "SDL2/SDL.h"
 
 #include "dataHandler.hpp"
 #include "generateDataGraph.hpp"
@@ -14,7 +12,7 @@
 static SDL_Window *window = NULL;
 static SDL_Renderer *renderer = NULL;
 
-int main(int argc, char* argv[])
+int  SDL_main(int argc, char* argv[])
 {
 	if (generateData(10, "Merge"))
 	{
