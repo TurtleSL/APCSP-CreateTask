@@ -1,4 +1,4 @@
-#include "SDL2/SDL.h"
+#include "SDL3/SDL.h"
 
 #include "dataHandler.hpp"
 #include "generateDataGraph.hpp"
@@ -26,7 +26,7 @@ int  SDL_main(int argc, char* argv[])
 		return 1;
 	}
 
-	window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
+	window = SDL_CreateWindow("Hello SDL", 640, 480, NULL);
 	if (!window) 
 	{
 		std::cout << "SDL_CreateWindow failed with error: " << SDL_GetError() << std::endl;
